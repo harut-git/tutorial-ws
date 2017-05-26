@@ -5,7 +5,7 @@ socket.onopen = function () {
 };
 
 function myFunction() {
-    socket.send("Hello");
+    socket.send("enable_reader");
 }
 socket.onmessage = function (event) {
     var response = JSON.parse(event.data);
