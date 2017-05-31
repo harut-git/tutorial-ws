@@ -1,10 +1,10 @@
 
-var socket = new WebSocket("ws://192.168.4.145:8989");
+var socket = new WebSocket("ws://localhost:8989");
 socket.onopen = function () {
 };
 
 function myFunction() {
-    socket.send("enable_reader");
+    socket.send(JSON.stringify({"command": "listen_reader", "params": {}}));
 	document.getElementById("addperson").style.display = "block";
 	document.getElementById("person").style.display = "none";
 }
@@ -38,10 +38,10 @@ function apply_add() {
 				"group": document.getElementById("us_group").value,
 				"start_ts": document.getElementById("us_st").value,
 				"end_ts": document.getElementById("us_et").value,
-				"comment": document.getElementById("us_com").value,
+				"comment": document.getElementById("us_com").value
 			}
 		})
-	)
+	);
 	document.getElementById("addperson").style.display = "none";
 	document.getElementById("person").style.display = "block";
 
